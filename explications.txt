@@ -1,0 +1,50 @@
+                  #Morpion (Tic Tac Toe) en C avec Ncurses
+
+**Description du Projet
+Ce projet est un jeu de Morpion (Tic Tac Toe) développé en C avec la bibliothèque Ncurses pour un affichage en plein écran dans le terminal.
+
+*Le jeu propose trois modes :
+
+Joueur vs IA
+IA vs IA
+Joueur vs Joueur
+
+
+**Design et Fonctionnalités:
+Grille plein écran qui s’adapte à la taille du terminal
+Utilisation de couleurs pour les joueurs et le menu
+Navigation au clavier avec les flèches directionnelles
+Interface Ncurses en mode terminal
+Affichage du gagnant ou d’un match nul
+
+
+
+**Problèmes rencontrés:
+Tracer les bords internes de la grille sans afficher les bords externes
+Centrer les symboles 'X' et 'O' dans chaque case
+Gérer les touches du clavier (flèches et entrée) avec Ncurses
+Lors du premier git push, j’ai eu l’erreur "remote origin already exists" (résolu)
+
+
+
+
+**Résultat Final:
+Le jeu fonctionne parfaitement dans le terminal en plein écran avec un design coloré.
+L’interface est simple, fluide et agréable à utiliser.
+
+
+**Commandes Git utilisées
+
+git add .
+git commit -m "Initial commit of my Tic Tac Toe game"
+git push
+
+
+**Comment exécuter le jeu ?
+Compiler le code :
+Utilise la commande gcc pour compiler le code en un exécutable :
+gcc helloworld.c -o helloworld -lncurses
+
+Exécuter le jeu :
+Une fois le jeu compilé, tu peux le lancer avec la commande suivante :
+./helloworld
