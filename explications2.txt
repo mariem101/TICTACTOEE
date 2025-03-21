@@ -1,0 +1,68 @@
+##Le code implémente un jeu de Morpion (Tic-Tac-Toe) en utilisant la bibliothèque ncurses pour l'interface graphique en mode texte, permettant une interaction avec l'utilisateur dans un terminal.
+
+1. Déclarations et définitions :
+Plateau de jeu : Le plateau de 3x3 cases est représenté par un tableau plateau de caractères, avec 3 lignes (NLINE) et 3 colonnes (NCOL).
+centerX, centerY : Ces variables servent à définir la position du curseur dans le terminal pour centrer l'affichage du jeu.
+
+2. Fonction resetPlateau() :
+Cette fonction réinitialise le plateau de jeu en le remplissant de ' ' (espaces vides).
+
+3. Fonction afficherPlateau() :
+Cette fonction affiche la grille du jeu dans le terminal sous forme de cases.
+
+Elle divise l'écran en cellules en fonction des dimensions du terminal (LINES, COLS), créant ainsi un affichage plein écran.
+La grille est dessinée à l'aide de la fonction mvprintw pour placer des caractères (*, |, -) représentant les bordures des cases.
+Si une case contient un symbole (soit 'X' ou 'O'), il est affiché au centre de la case avec la couleur associée.
+
+4. Fonction verifierVictoire() :
+Cette fonction vérifie les conditions de victoire sur le plateau :
+
+Les trois lignes horizontales et verticales sont vérifiées pour voir si elles contiennent le même symbole (soit 'X' ou 'O').
+Les deux diagonales sont également vérifiées.
+Si une condition de victoire est remplie, la fonction retourne le symbole gagnant, sinon elle retourne ' ' (aucun gagnant).
+
+5. Fonction estMatchNul() :
+Cette fonction vérifie si le jeu est un match nul, c'est-à-dire si toutes les cases sont remplies sans qu'il y ait de gagnant.
+
+6. Fonction iaJoue() :
+Cette fonction simule un coup de l'IA en sélectionnant une case vide au hasard et en y plaçant le symbole de l'IA.
+
+7. Fonction jouerMorpion() :
+Cette fonction est la logique principale du jeu. Elle gère le déroulement de la partie, l'affichage du plateau, les interactions avec l'utilisateur et l'IA :
+
+L'affichage du plateau est mis à jour à chaque tour.
+Selon le mode de jeu (mode), l'utilisateur joue soit contre l'IA, soit contre un autre joueur.
+Le joueur humain peut se déplacer avec les touches fléchées, et valider son choix avec la touche Entrée.
+Si c'est au tour de l'IA, un coup aléatoire est joué après une courte pause.
+Après chaque coup, la fonction vérifie si un joueur a gagné ou si le match est nul.
+
+8. Fonction afficherMenu() :
+Cette fonction affiche le menu du jeu dans le terminal avec les options suivantes :
+
+Joueur vs IA
+IA vs IA
+Joueur vs Joueur
+Quitter
+Le menu est affiché avec une bordure et chaque option est centrée. L'utilisateur choisit une option en appuyant sur une touche correspondant à un numéro.
+
+9. Fonction main() :
+La fonction principale initialise l'écran ncurses, configure les couleurs, et lance la boucle principale du programme :
+
+Le menu est affiché, et une fois que l'utilisateur choisit une option, le jeu commence dans le mode sélectionné.
+Le jeu continue jusqu'à ce que l'utilisateur choisisse de quitter.
+
+10. Gestion des couleurs :
+Les couleurs sont définies avec la fonction init_pair() :
+
+COLOR_PAIR(1) : Bordure
+COLOR_PAIR(2) : Bordure du menu
+COLOR_PAIR(3) : Joueur 'X'
+COLOR_PAIR(4) : Joueur 'O'
+COLOR_PAIR(5) : Titre du menu
+COLOR_PAIR(6) : Message de victoire
+COLOR_PAIR(7) : Message de match nul
+COLOR_PAIR(8) : Message de choix d'option
+Points techniques :
+La fonction getch() est utilisée pour récupérer les entrées clavier de l'utilisateur.
+ncurses gère l'affichage du jeu en mode texte avec des fonctionnalités de mise en forme (couleurs, bordures, etc.).
+Le random est utilisé pour générer des coups aléatoires pour l'IA.

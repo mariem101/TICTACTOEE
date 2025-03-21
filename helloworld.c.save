@@ -3,8 +3,8 @@
 //
 
 #include <stdlib.h>
-#include "curses"
-#include "ncurses_dll.h"
+
+[]include "ncurses_dll.h"
 #include <string.h>
 #include <time.h>
 #include <ncurses.h>
